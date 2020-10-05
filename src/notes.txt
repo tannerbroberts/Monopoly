@@ -1,0 +1,23 @@
+todo    put all the output methods in one class
+
+todo    make the interaction with go space just 200 instead of 400
+
+todo    fill the chance card deck
+
+todo    make the trading interface
+
+todo    make the mortgage interface
+
+todo    make the building interface
+
+todo    print something that looks like a board with spaces
+
+ buy price / rent goes here          buy price / rent goes here          buy price / rent goes here
+ ---  ---       ---       ---  ---       ---  ---  ---  ---  ---  ---  ---  ---  ---       ---  ---
+ go   br1  com  br2  TAX  RR   b1   cha  b2   b3   JAL  p1   utl  p2   p3   RR   Or1  cha  or2  or3
+            indicator of where a player is at on the board goes here             Ini
+
+ buy price / rent goes here          buy price / rent goes here          buy price / rent goes here
+ ---       ---       ---  ---  ---       ---  ---  ---  ---  ---  ---  ---  ---  ---       ---  ---
+ BW   TAX  PPl  com  ShL  Gr1   cha  b2   b3   JAL  p1   utl  p2   p3   RR   Or1  cha  or2  or3
+                                Sav  Ben
