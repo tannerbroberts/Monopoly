@@ -24,13 +24,7 @@ public class Board {
     }
 
     public void postTrade(Player giver, int dollarOffer, ArrayList<Property> propertyOffer, int dollarRequest, ArrayList<Property> propertyRequest) {
-        trades.add(
-                new Trade(
-                    giver,
-                    dollarOffer,
-                    propertyOffer,
-                    dollarRequest,
-                    propertyRequest));
+
     }
 
     public String tradesListTranscript() {

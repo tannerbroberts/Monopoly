@@ -26,11 +26,6 @@ public class Trade {
 
     }
 
-    public void addRequest(ArrayList<Property> propertyRequest, int dollarRequest) {
-        propertyRequest = request;
-
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
