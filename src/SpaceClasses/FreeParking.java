@@ -1,4 +1,8 @@
-public class FreeParking extends Space{
+package SpaceClasses;
+
+import Main.Player;
+
+public class FreeParking extends Space {
 
     public FreeParking() {
         super("Free Parking", 0);

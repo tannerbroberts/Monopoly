@@ -1,6 +1,11 @@
-public class RailRoad extends Property{
+package SpaceClasses;
 
-    private int one, two, three, four;
+public class RailRoad extends Property {
+
+    private final int one;
+    private final int two;
+    private final int three;
+    private final int four;
     // developmentSize legend: one railroad, two, three, four railroads owned all by the same person... pretty simple.
 
     public RailRoad(char type, String name, int purchaseCost, int one, int two, int three, int four) {

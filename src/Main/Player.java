@@ -1,3 +1,8 @@
+package Main;
+
+import SpaceClasses.Property;
+import SpaceClasses.Space;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -8,8 +13,8 @@ public class Player {
     private int dollarCount;
     private final Board board;
     private int location;
-    private ArrayList<Player> otherPlayers;
-    private ArrayList<Property> properties;
+    private final ArrayList<Player> otherPlayers;
+    private final ArrayList<Property> properties;
 
     private boolean inJail = false;
     private int jailSentence = 0;
@@ -23,7 +28,7 @@ public class Player {
         this.dollarCount = dollarCount;
 
         this.location = 0;
-        System.out.println(name + " has been added with $" + dollarCount + " on the GO space");
+        System.out.println(name + " has been added with $" + dollarCount + " on the SpaceClasses.GO space");
 
         this.board = board;
 
@@ -36,38 +41,29 @@ public class Player {
 
     public void takeTurn() {
 
-        if(inJail) interactWithSpace(board.get(10));
-        else noJailPlay();
-    }
-
-    public void noJailPlay() {
-
-        interactWithSpace(myNewLocationAfterRolling());
+        if (inJail) interactWithSpace(board.get(10));
+        else interactWithSpace(myNewLocationAfterRolling());
 
         while (true) {
-            System.out.print("pass, trade, post, build, mortgage: ");
+            System.out.print("pass, trade, build, mortgage: ");
 
-            String[] acceptable_strings = {"pass", "trade", "post", "build", "mortgage"};
+            String[] acceptable_strings = {"pass", "trade", "build", "mortgage"};
             switch (MyInput.validate_string(acceptable_strings)) {
-                case "post": {
-                    makeTrade();
-                }
-                break;
+                case "pass": {
+                    return;
+                }// no return needed
                 case "trade": {
                     trade();
-                }
-                break;
-                case "mortgage": {
-                    mortgage();
                 }
                 break;
                 case "build": {
                     build();
                 }
                 break;
-                case "pass": {
-                    return;
+                case "mortgage": {
+                    mortgage();
                 }
+                break;
                 default: {
                     System.out.println("bad input");
                 }
@@ -77,16 +73,18 @@ public class Player {
 
     public void trade() {
         while (true) {
-            System.out.print("take, make: ");
 
-            String[] acceptable_strings = {"take", "make"};
+            System.out.println(board.tradesListTranscript());
+            System.out.print("list, accept");
+
+            String[] acceptable_strings = {"list", "accept"};
             switch (MyInput.validate_string(acceptable_strings)) {
-                case "take": {
-                    takeTrade();
+                case "list": {
+                    list();
                     return;
                 }
-                case "make": {
-                    makeTrade();
+                case "accept": {
+                    accept();
                     return;
                 }
                 default: {
@@ -96,9 +94,64 @@ public class Player {
         }
     }
 
-    public void takeTrade() {
+    public void list() {
+        // get the list of properties offered, asked, and dollars offered/asked
+        ArrayList<Property> propertiesOffered = new ArrayList<>();
+        ArrayList<Property> propertiesAsked = new ArrayList<>();
+        int dollarsOffered = 0;
+        int dollarsAsked = 0;
 
-        if(board.tradeListSize() == 0) {
+        while (this.properties.size() > propertiesOffered.size()) {
+            System.out.println("Currently Offered:");
+            for (Property p : propertiesOffered) {
+                System.out.println("\t" + p.toString());
+            }
+            System.out.println("\tdollars: " + dollarsOffered);
+            System.out.println("Currently Asked:");
+            for (Property p : propertiesAsked) {
+                System.out.println("\t" + p.toString());
+            }
+            System.out.print("\tdollars: " + dollarsAsked);
+            System.out.println("____________________");
+
+
+            System.out.println("ask, offer, askd, offerd");
+            String[] acceptable_strings = {"ask", "offer", "askd", "offerd"};
+            switch (MyInput.validate_string(acceptable_strings)) {
+                case "ask": {
+                    String input = MyInput.get_string();
+                    for (Property p : this.properties) {
+                        if (p.name.equals(input)) {
+                            propertiesAsked.add(p);
+                        }
+                    }
+                }
+                break;
+                case "offer": {
+                    String input = MyInput.get_string();
+                    for (Property p : this.properties) {
+                        if (p.name.equals(input)) {
+                            propertiesOffered.add(p);
+                        }
+                    }
+                }
+                break;
+                case "askd": {
+                    System.out.print("amount: ");
+                    dollarsAsked = MyInput.get_int();
+                }
+                break;
+                case "offerd": {
+                    System.out.println("amount: ");
+                    dollarsOffered = MyInput.get_int();
+                }
+                break;
+            }
+        }
+    }
+
+    public void accept() {
+        if (board.tradeListSize() == 0) {
             System.out.println("no trades available");
             return;
         }
@@ -106,38 +159,6 @@ public class Player {
         System.out.println(board.tradesListTranscript());
         int input = MyInput.validate_integer(board.tradeListSize() - 1, 0);
         board.takeTrade(input, this);
-    }
-
-    public void makeTrade() {
-
-        while(true) {
-            System.out.print("offer, ask, done: ");
-            String[] acceptable_strings = {"offer", "ask", "done"};
-            switch (MyInput.validate_string(acceptable_strings)) {
-                case "offer": {
-                    offer();
-                }
-                case "ask": {
-                    ask();
-                }
-                case "done": {
-                    break;
-                }
-            }
-        }
-    }
-
-    public void offer() {
-        // get the list of properties offered
-        while(properties.size() > 0) {
-            
-        }
-
-        // get the dollar amount offered
-    }
-
-    public void ask() {
-
     }
 
     public void mortgage() {
@@ -190,7 +211,7 @@ public class Player {
     public int diceRoll() {
 
         int r1 = random.nextInt(6) + 1,
-            r2 = random.nextInt(6) + 1;
+                r2 = random.nextInt(6) + 1;
 
         System.out.println(this.name + " rolled " + r1 + ", " + r2);
 

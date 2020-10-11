@@ -1,10 +1,11 @@
-import java.util.ArrayList;
+package Main;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyInput {
     public static int get_int() {
-        while(true) {
+        while (true) {
             try {
                 System.out.print("int:");
                 return new Scanner(System.in).nextInt();

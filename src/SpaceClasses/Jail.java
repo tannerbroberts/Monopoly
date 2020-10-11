@@ -1,4 +1,9 @@
-public class Jail extends Space{
+package SpaceClasses;
+
+import Main.MyInput;
+import Main.Player;
+
+public class Jail extends Space {
 
     public Jail(String name, int cost) {
         super(name, cost);
@@ -35,31 +40,28 @@ public class Jail extends Space{
                         }
                     }
                     return;
-                }
-                else if(answer.equals("pay")) {
+                } else if(answer.equals("pay")) {
                     System.out.print("payed to get out, ");
                     player.setDollarCount(-1 * cost);
                     player.setInJail(false);
                     player.setJailSentence(0);
                     player.noJailPlay();
                     return;
-                }
-                else if(answer.equals("card") && player.hasPass()) {
+                } else if(answer.equals("card") && player.hasPass()) {
                     player.setGetOutOfJailFreeOwnership(false);
                     player.setInJail(false);
                     player.setJailSentence(0);
                     System.out.println(player.getName() + " used a card to get out of jail");
                     player.noJailPlay();
                     return;
-                }
-                else {
+                } else {
                     System.out.println("bad input");
                 }
             }
         }
 
-            // TODO: 4/22/20 this isn't right, if the player ROLLS for the third time and doesn't get doubles,
-            // TODO: 4/22/20 they automatically pay $50 and get out of jail on that turn
+        // TODO: 4/22/20 this isn't right, if the player ROLLS for the third time and doesn't get doubles,
+        // TODO: 4/22/20 they automatically pay $50 and get out of jail on that turn
 
     }
 }

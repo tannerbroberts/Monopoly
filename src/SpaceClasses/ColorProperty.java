@@ -1,6 +1,13 @@
-public class ColorProperty extends Property{
+package SpaceClasses;
 
-    private int rent, oneHouse, twoHouse, threeHouse, fourHouse, hotel;
+public class ColorProperty extends Property {
+
+    private final int rent;
+    private final int oneHouse;
+    private final int twoHouse;
+    private final int threeHouse;
+    private final int fourHouse;
+    private final int hotel;
     // developmentSize legend: 0 = rent, 1 = house, 2 = two house, 3 = three house, 4 = four house, 5 = hotel, 6 = double rent
 
     public ColorProperty(char color_type, String name, int buyCost, int rent, int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel) {

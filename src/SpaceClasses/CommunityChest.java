@@ -1,4 +1,8 @@
-public class CommunityChest extends Space{
+package SpaceClasses;
+
+import Main.Player;
+
+public class CommunityChest extends Space {
 
     public CommunityChest(int n) {
 

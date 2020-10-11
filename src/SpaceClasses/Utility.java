@@ -1,6 +1,8 @@
+package SpaceClasses;
+
 import java.util.Random;
 
-public class Utility extends Property{
+public class Utility extends Property {
     int one, two;
 
     public Utility(char type, String name, int cost, int one, int two) {

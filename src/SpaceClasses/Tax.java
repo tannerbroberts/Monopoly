@@ -1,3 +1,7 @@
+package SpaceClasses;
+
+import Main.Player;
+
 public class Tax extends Space {
 
     public Tax(String name, int cost) {

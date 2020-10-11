@@ -1,7 +1,11 @@
+package SpaceClasses;
+
+import Main.Player;
+
 import java.util.Random;
 
-public class ChanceCard extends Space{
-    private static Random random = new Random();
+public class ChanceCard extends Space {
+    private static final Random random = new Random();
 
     public ChanceCard() {
 
@@ -38,6 +42,7 @@ public class ChanceCard extends Space{
 
         player.moveSpecificAmount(-3);
     }
+
     private void electedChairmanOfTheBoard(Player player) {
 
         System.out.println("you are elected chairman of the board. Pay each player $50");
@@ -47,18 +52,21 @@ public class ChanceCard extends Space{
             otherPlayer.setDollarCount(50);
         }
     }
+
     private void goToJail(Player player) {
 
         System.out.println("go to jail, go directly to jail, do not pass go, do not collect $200");
 
         player.goToJail();
     }
+
     private void goToReadingRailroad(Player player) {
 
         System.out.println("advance to reading railroad");
 
         player.moveToSpecificSpace(5);
     }
+
     private void generalRepairs(Player player) {
 
         System.out.println("you are assessed for general repairs. pay $25 per house you own and $125 for every hotel");
@@ -71,12 +79,14 @@ public class ChanceCard extends Space{
         }
         System.out.println(player.getName() + " payed $" + repairCost + " for property repairs");
     }
+
     private void goToSaintCharlesPlace(Player player) {
 
         System.out.println("advance to st. charles place");
 
         player.moveToSpecificSpace(11);
     }
+
     private void payMoreForRailroad(Player player) {
 
         System.out.println("advance to the nearest railroad. If unowned, you may purchase it. If owned, pay the owner twice the rent to which they are otherwise entitled.");
@@ -89,6 +99,7 @@ public class ChanceCard extends Space{
         player.interactWithSpace(player.getBoard().get(location));
         player.interactWithSpace(player.getBoard().get(location));
     }
+
     private void payMoreForUtility(Player player) {
 
         System.out.println("advance to the nearest utility, if unowned, pay the owner twice... just roll twice");
@@ -102,31 +113,37 @@ public class ChanceCard extends Space{
         player.interactWithSpace(player.getBoard().get(player.getLocation()));
         player.interactWithSpace(player.getBoard().get(player.getLocation()));
     }
+
     private void goToBoardwalk(Player player) {
 
         System.out.println("advance to boardwalk ");
         player.moveToSpecificSpace(39);
     }
+
     private void advanceToGo(Player player) {
 
         System.out.println("advance to go ");
         player.moveToSpecificSpace(0);
     }
+
     private void buildingAndLoan(Player player) {
 
         System.out.println("your building and loan matures ");
         player.setDollarCount(150);
     }
+
     private void speedingFine(Player player) {
 
         System.out.print("speeding fine ");
         player.setDollarCount(-15);
     }
+
     private void goToIllinoisAvenue(Player player) {
 
         System.out.println("advance to illinois avenue");
         player.moveToSpecificSpace(24);
     }
+
     private void getOutOfJailFree(Player player) {
 
         player.setGetOutOfJailFreeOwnership(true);

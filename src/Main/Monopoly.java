@@ -1,12 +1,14 @@
+package Main;
+
 import java.util.ArrayList;
 
 public class Monopoly {
 
-    public static void play(int pc, int dc) {
+    public static void play(int playerCount, int dollarCount) {
         ArrayList<Player> players = new ArrayList<>();
         Board board = new Board();
 
-        boardSetup(pc, dc, board, players);
+        boardSetup(playerCount, dollarCount, board, players);
 
         while (players.size() > 1) {
             for (int i = 0; i < players.size(); i++) {

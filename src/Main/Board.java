@@ -1,8 +1,14 @@
+package Main;
+
+import SpaceClasses.Property;
+import SpaceClasses.Space;
+import SpaceClasses.SpaceBuilder;
+
 import java.util.ArrayList;
 
 public class Board {
     private final ArrayList<Space> spaces;
-    private ArrayList<Trade> trades;
+    private final ArrayList<Trade> trades;
 
     public Board() {
 
@@ -32,10 +38,9 @@ public class Board {
         StringBuilder sb = new StringBuilder();
         sb.append("Trades List:\n");
         for (int i = 0; i < trades.size(); i++) {
-            sb.append("(");
             sb.append(i);
             sb.append(") ");
-            sb.append(trades.toString());
+            sb.append(trades.get(i).toString());
             sb.append("\n");
         }
 

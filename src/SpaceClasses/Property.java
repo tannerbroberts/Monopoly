@@ -1,4 +1,9 @@
-public abstract class Property extends Space{
+package SpaceClasses;
+
+import Main.MyInput;
+import Main.Player;
+
+public abstract class Property extends Space {
     protected Player owner;
     protected int developmentSize;
     protected char type;
@@ -34,8 +39,7 @@ public abstract class Property extends Space{
                         System.out.println("enter y or n");
                 }
             }
-        }
-        else if(!owner.equals(player)) {
+        } else if(!owner.equals(player)) {
             int amount = getRent();
             player.setDollarCount(-1 * amount);
             owner.setDollarCount(amount);

@@ -1,4 +1,8 @@
-public class GO extends Space{
+package SpaceClasses;
+
+import Main.Player;
+
+public class GO extends Space {
 
     public GO(String name, int cost) {
         super(name, cost);

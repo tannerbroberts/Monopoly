@@ -1,29 +1,30 @@
+package Main;
+
+import SpaceClasses.Property;
+
 import java.util.ArrayList;
 
 public class Trade {
     Player giver;
 
-    int dollarOffer;
     ArrayList<Property> propertiesOffer;
+    int dollarOffer;
 
-    int dollarRequest;
     ArrayList<Property> propertyRequest;
+    int dollarRequest;
 
-    public Trade(Player giver) {
+    public Trade(Player giver, ArrayList<Property> propertiesOffer, ArrayList<Property> propertyRequest, int dollarOffer, int dollarRequest) {
         this.giver = giver;
-        propertiesOffer = new ArrayList<>();
-        propertyRequest = new ArrayList<>();
+        this.propertiesOffer = propertiesOffer;
+        this.propertyRequest = propertyRequest;
+        this.dollarOffer = dollarOffer;
+        this.dollarRequest = dollarRequest;
     }
 
     public void makeItHappen(Player taker) {
         System.out.println("We can't actually trade yet...");
         // TODO: 4/9/20 ... make it happen?
-    }
-
-    public void addOffer(ArrayList<Property> propertiesOffer, int dollarOffer) {
-        this.propertiesOffer = propertiesOffer;
-        this.dollarOffer = dollarOffer;
-
+        // remove the trade from the list that it exists in
     }
 
     @Override

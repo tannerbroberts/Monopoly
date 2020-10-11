@@ -1,5 +1,9 @@
+package SpaceClasses;
+
+import Main.Player;
+
 public abstract class Space {
-    String name;
+    public String name;
     Integer cost;
 
     public Space(String name, int cost) {
