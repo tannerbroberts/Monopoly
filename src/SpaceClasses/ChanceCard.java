@@ -1,6 +1,6 @@
 package SpaceClasses;
 
-import Main.Player;
+import Main.Classes.Player;
 
 import java.util.Random;
 
@@ -18,21 +18,48 @@ public class ChanceCard extends Space {
         System.out.print("Chance: ");
 
         switch (random.nextInt(15)) {
-            case 0: goBackThreeSpaces(player); break;
-            case 1: electedChairmanOfTheBoard(player); break;
-            case 2: goToJail(player); break;
-            case 3: goToReadingRailroad(player); break;
-            case 4: generalRepairs(player); break;
-            case 5: goToSaintCharlesPlace(player); break;
-            case 6: goToIllinoisAvenue(player);
-            case 7: payMoreForUtility(player); break;
-            case 8: goToBoardwalk(player); break;
-            case 9: advanceToGo(player); break;
-            case 10: buildingAndLoan(player); break;
-            case 11: speedingFine(player); break;
+            case 0:
+                goBackThreeSpaces(player);
+                break;
+            case 1:
+                electedChairmanOfTheBoard(player);
+                break;
+            case 2:
+                goToJail(player);
+                break;
+            case 3:
+                goToReadingRailroad(player);
+                break;
+            case 4:
+                generalRepairs(player);
+                break;
+            case 5:
+                goToSaintCharlesPlace(player);
+                break;
+            case 6:
+                goToIllinoisAvenue(player);
+                break;
+            case 7:
+                payMoreForUtility(player);
+                break;
+            case 8:
+                goToBoardwalk(player);
+                break;
+            case 9:
+                advanceToGo(player);
+                break;
+            case 10:
+                buildingAndLoan(player);
+                break;
+            case 11:
+                speedingFine(player);
+                break;
             case 12:
-            case 13: payMoreForRailroad(player); break;
-            case 14: getOutOfJailFree(player);
+            case 13:
+                payMoreForRailroad(player);
+                break;
+            case 14:
+                getOutOfJailFree(player);
         }
     }
 

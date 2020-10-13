@@ -1,6 +1,6 @@
 package SpaceClasses;
 
-import Main.Player;
+import Main.Classes.Player;
 
 public class GO extends Space {
 

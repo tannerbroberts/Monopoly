@@ -1,12 +1,11 @@
 package SpaceClasses;
 
-import Main.MyInput;
-import Main.Player;
+import Main.Classes.MyInput;
+import Main.Classes.Player;
 
 public abstract class Property extends Space {
     protected Player owner;
     protected int developmentSize;
-    protected char type;
     protected boolean mortgaged;
 
     public Property(char type, String name, int cost, int developmentSize) {

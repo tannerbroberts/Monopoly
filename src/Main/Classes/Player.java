@@ -1,4 +1,4 @@
-package Main;
+package Main.Classes;
 
 import SpaceClasses.Property;
 import SpaceClasses.Space;
@@ -51,7 +51,7 @@ public class Player {
             switch (MyInput.validate_string(acceptable_strings)) {
                 case "pass": {
                     return;
-                }// no return needed
+                }// no break statement needed
                 case "trade": {
                     trade();
                 }
@@ -75,7 +75,6 @@ public class Player {
         while (true) {
 
             System.out.println(board.tradesListTranscript());
-            System.out.print("list, accept");
 
             String[] acceptable_strings = {"list", "accept"};
             switch (MyInput.validate_string(acceptable_strings)) {
@@ -96,33 +95,21 @@ public class Player {
 
     public void list() {
         // get the list of properties offered, asked, and dollars offered/asked
-        ArrayList<Property> propertiesOffered = new ArrayList<>();
-        ArrayList<Property> propertiesAsked = new ArrayList<>();
-        int dollarsOffered = 0;
-        int dollarsAsked = 0;
+        Trade newTrade = new Trade(this);
 
-        while (this.properties.size() > propertiesOffered.size()) {
-            System.out.println("Currently Offered:");
-            for (Property p : propertiesOffered) {
-                System.out.println("\t" + p.toString());
-            }
-            System.out.println("\tdollars: " + dollarsOffered);
-            System.out.println("Currently Asked:");
-            for (Property p : propertiesAsked) {
-                System.out.println("\t" + p.toString());
-            }
-            System.out.print("\tdollars: " + dollarsAsked);
-            System.out.println("____________________");
+        boolean keepGoing = true;
+        while (keepGoing) {
+            System.out.println("Current Offer:\n" +
+                    newTrade);
 
 
-            System.out.println("ask, offer, askd, offerd");
-            String[] acceptable_strings = {"ask", "offer", "askd", "offerd"};
+            String[] acceptable_strings = {"ask", "offer", "askd", "offerd", "done"};
             switch (MyInput.validate_string(acceptable_strings)) {
                 case "ask": {
                     String input = MyInput.get_string();
                     for (Property p : this.properties) {
                         if (p.name.equals(input)) {
-                            propertiesAsked.add(p);
+                            newTrade.propertyRequest.add(p);
                         }
                     }
                 }
@@ -131,23 +118,34 @@ public class Player {
                     String input = MyInput.get_string();
                     for (Property p : this.properties) {
                         if (p.name.equals(input)) {
-                            propertiesOffered.add(p);
+                            newTrade.propertiesOffer.add(p);
+                            break;
+                        } else {
+                            System.out.println("player doesn't have the property: " + input);
                         }
                     }
                 }
                 break;
                 case "askd": {
                     System.out.print("amount: ");
-                    dollarsAsked = MyInput.get_int();
+                    newTrade.dollarRequest = MyInput.get_int();
                 }
                 break;
                 case "offerd": {
                     System.out.println("amount: ");
-                    dollarsOffered = MyInput.get_int();
+                    newTrade.dollarOffer = MyInput.get_int();
                 }
                 break;
+                case "done": {
+                    keepGoing = false;
+                }
+                break;
+                default: {
+                    System.out.println("This shouldn't happened because of the validateInput function from MyInput class");
+                }
             }
         }
+        board.postTrade(newTrade);
     }
 
     public void accept() {
@@ -156,7 +154,6 @@ public class Player {
             return;
         }
 
-        System.out.println(board.tradesListTranscript());
         int input = MyInput.validate_integer(board.tradeListSize() - 1, 0);
         board.takeTrade(input, this);
     }
@@ -223,11 +220,6 @@ public class Player {
         return random.nextInt(6) == 0;
     }
 
-    public int getDollarCount() {
-
-        return dollarCount;
-    }
-
     public void setDollarCount(int amount) {
 
         if(amount > 0) System.out.println(name + "  $" + amount);
@@ -272,14 +264,19 @@ public class Player {
         this.inJail = inJail;
     }
 
-    public int getJailSentence() {
+    public boolean timeToGetOutOfJail() {
 
-        return jailSentence;
+        return jailSentence == 0;
     }
 
-    public void setJailSentence(int jailSentence) {
+    public void spentANightInJain() {
 
-        this.jailSentence = jailSentence;
+        this.jailSentence -= 1;
+    }
+
+    public void gotOutOfJail() {
+        this.inJail = false;
+        this.jailSentence = 0;
     }
 
     public String getName() {

@@ -1,14 +1,18 @@
-todo    put all the output methods in one class
-
-todo    make the interaction with go space just 200 instead of 400
-
-todo    fill the chance card deck
-
 todo    make the trading interface
+todo    rework property buying so that the player needs to ask the bank for the property
+todo        instead of the property awarding itself to the player
+todo    Make the trading fully functional by allowing a player to request sets of
+todo    properties from a specific other player by name
+todo        This means  I'm going to need to put a Player receiver in the trade class
+todo            and make that part of the Player.trade() function
 
 todo    make the mortgage interface
 
 todo    make the building interface
+
+todo    make the interaction with go space just 200 instead of 400
+
+todo    put all the output methods in one class
 
 todo    print something that looks like a board with spaces
 

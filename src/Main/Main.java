@@ -1,4 +1,5 @@
 package Main;
+import Main.Classes.Monopoly;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +7,5 @@ public class Main {
         final int INITIAL_DOLLAR_COUNT = 1500;
 
         Monopoly.play(PLAYER_COUNT, INITIAL_DOLLAR_COUNT);
-        // TODO: 4/8/20 currently filling out Community Chest and Chance Class extensions for SpaceClasses.Space
     }
 }

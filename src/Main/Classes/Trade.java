@@ -1,4 +1,4 @@
-package Main;
+package Main.Classes;
 
 import SpaceClasses.Property;
 
@@ -13,12 +13,10 @@ public class Trade {
     ArrayList<Property> propertyRequest;
     int dollarRequest;
 
-    public Trade(Player giver, ArrayList<Property> propertiesOffer, ArrayList<Property> propertyRequest, int dollarOffer, int dollarRequest) {
+    public Trade(Player giver) {
         this.giver = giver;
-        this.propertiesOffer = propertiesOffer;
-        this.propertyRequest = propertyRequest;
-        this.dollarOffer = dollarOffer;
-        this.dollarRequest = dollarRequest;
+        this.propertiesOffer = new ArrayList<>();
+        this.propertyRequest = new ArrayList<>();
     }
 
     public void makeItHappen(Player taker) {
@@ -32,16 +30,16 @@ public class Trade {
         StringBuilder sb = new StringBuilder();
 
         sb.append(giver);
-        sb.append("      -> ($");
+        sb.append(" ->($");
         sb.append(dollarOffer);
         if(propertiesOffer.size() > 0) sb.append(", ");
         for (int i = 0; i < propertiesOffer.size(); i++) {
             sb.append(propertiesOffer.get(i));
             if(i < propertiesOffer.size() - 1) sb.append(", ");
         }
-        sb.append(")      ");
+        sb.append(")");
 
-        sb.append("<- ($");
+        sb.append("          <-($");
         sb.append(dollarRequest);
         if(propertyRequest.size() > 0) sb.append(", ");
         for (int i = 0; i < propertyRequest.size(); i++) {

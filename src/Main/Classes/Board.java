@@ -1,6 +1,5 @@
-package Main;
+package Main.Classes;
 
-import SpaceClasses.Property;
 import SpaceClasses.Space;
 import SpaceClasses.SpaceBuilder;
 
@@ -29,8 +28,9 @@ public class Board {
         trades.get(n).makeItHappen(player);
     }
 
-    public void postTrade(Player giver, int dollarOffer, ArrayList<Property> propertyOffer, int dollarRequest, ArrayList<Property> propertyRequest) {
+    public void postTrade(Trade trade) {
 
+        trades.add(trade);
     }
 
     public String tradesListTranscript() {
