@@ -26,6 +26,7 @@ public class Board {
     public void takeTrade(int n, Player player) {
 
         trades.get(n).makeItHappen(player);
+        trades.remove(n);
     }
 
     public void postTrade(Trade trade) {
@@ -41,8 +42,9 @@ public class Board {
             sb.append(i);
             sb.append(") ");
             sb.append(trades.get(i).toString());
-            sb.append("\n");
+            sb.append("\n\n");
         }
+        if (trades.size() == 0) sb.append("---no trades available---\n");
 
         return sb.toString();
     }
@@ -50,5 +52,9 @@ public class Board {
     public int tradeListSize() {
 
         return trades.size();
+    }
+
+    public ArrayList<Space> getSpaces() {
+        return spaces;
     }
 }

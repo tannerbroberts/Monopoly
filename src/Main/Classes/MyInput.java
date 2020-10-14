@@ -30,7 +30,7 @@ public class MyInput {
         while(true) {
             try {
                 System.out.print("string:");
-                return new Scanner(System.in).next();
+                return new Scanner(System.in).nextLine();
             }catch(InputMismatchException e) {
                 System.out.println("bad input, you need a string");
             }
@@ -40,7 +40,7 @@ public class MyInput {
     public static String validate_string(String[] acceptable_inputs) {
         while(true) {
             try {
-                for (String word: acceptable_inputs) System.out.print(" " + word);
+                for (String word : acceptable_inputs) System.out.print(word + ".");
                 System.out.print(":");
                 String return_value = new Scanner(System.in).next();
                 for(String word: acceptable_inputs) if(return_value.equals(word)) return return_value;

@@ -151,7 +151,6 @@ public class SpaceBuilder {
 
     public static Space make(int n) {
 
-        // TODO: 4/5/20 return the right space for the right integer number on the board
         switch (n) {
             case 0:
                 return new GO("Go", MONEY_FOR_PASSING_GO);
@@ -164,7 +163,7 @@ public class SpaceBuilder {
             case 4:
                 return new Tax("INCOME TAX", INCOME_TAX);
             case 5:
-                return new RailRoad('9', "Reading Railroad", RR_cost, RR1, RR2, RR3, RR4);
+                return new RailRoad('9', "RR", RR_cost, RR1, RR2, RR3, RR4);
             case 6:
                 return new ColorProperty('2', "blue1", lb_a_cost, lb_a_rent, lb_a1, lb_a2, lb_a3, lb_a4, lb_a5);
             case 7:
@@ -174,7 +173,7 @@ public class SpaceBuilder {
             case 9:
                 return new ColorProperty('2', "blue3", lb_b_cost, lb_b_rent, lb_b1, lb_b2, lb_b3, lb_b4, lb_b5);
             case 10:
-                return new Jail("SpaceClasses.Jail", BAIL_COST);
+                return new Jail("Jail", BAIL_COST);
             case 11:
                 return new ColorProperty('3', "pink1", pk_a_cost, pk_a_rent, pk_a1, pk_a2, pk_a3, pk_a4, pk_a5);
             case 12:
@@ -204,7 +203,7 @@ public class SpaceBuilder {
             case 24:
                 return new ColorProperty('5', "red3", r_b_cost, r_b_rent, r_b1, r_b2, r_b3, r_b4, r_b5);
             case 25:
-                return new RailRoad('9', "B&O Railroad", RR_cost, RR1, RR2, RR3, RR4);
+                return new RailRoad('9', "BnO", RR_cost, RR1, RR2, RR3, RR4);
             case 26:
                 return new ColorProperty('6', "yellow1", y_a_cost, y_a_rent, y_a1, y_a2, y_a3, y_a4, y_a5);
             case 27:
@@ -214,7 +213,7 @@ public class SpaceBuilder {
             case 29:
                 return new ColorProperty('6', "yellow3", y_b_cost, y_b_rent, y_b1, y_b2, y_b3, y_b4, y_b5);
             case 30:
-                return new GoToJail("Go To SpaceClasses.Jail");
+                return new GoToJail("Go to Jail");
             case 31:
                 return new ColorProperty('7', "green1", g_a_cost, g_a_rent, g_a1, g_a2, g_a3, g_a4, g_a5);
             case 32:

@@ -28,7 +28,7 @@ public class Player {
         this.dollarCount = dollarCount;
 
         this.location = 0;
-        System.out.println(name + " has been added with $" + dollarCount + " on the SpaceClasses.GO space");
+        System.out.println(name + " has been added with $" + dollarCount + " on the " + board.get(location).name + " space");
 
         this.board = board;
 
@@ -45,8 +45,6 @@ public class Player {
         else interactWithSpace(myNewLocationAfterRolling());
 
         while (true) {
-            System.out.print("pass, trade, build, mortgage: ");
-
             String[] acceptable_strings = {"pass", "trade", "build", "mortgage"};
             switch (MyInput.validate_string(acceptable_strings)) {
                 case "pass": {
@@ -74,7 +72,7 @@ public class Player {
     public void trade() {
         while (true) {
 
-            System.out.println(board.tradesListTranscript());
+            System.out.print(board.tradesListTranscript());
 
             String[] acceptable_strings = {"list", "accept"};
             switch (MyInput.validate_string(acceptable_strings)) {
@@ -95,22 +93,28 @@ public class Player {
 
     public void list() {
         // get the list of properties offered, asked, and dollars offered/asked
-        Trade newTrade = new Trade(this);
+        Trade trade = new Trade(this);
 
         boolean keepGoing = true;
         while (keepGoing) {
             System.out.println("Current Offer:\n" +
-                    newTrade);
+                    trade);
 
 
-            String[] acceptable_strings = {"ask", "offer", "askd", "offerd", "done"};
+            String[] acceptable_strings = {"ask", "offer", "askd", "offerd", "done", "cancel"};
             switch (MyInput.validate_string(acceptable_strings)) {
                 case "ask": {
                     String input = MyInput.get_string();
-                    for (Property p : this.properties) {
-                        if (p.name.equals(input)) {
-                            newTrade.propertyRequest.add(p);
+                    boolean impossible = false;
+                    for (Space s : board.getSpaces()) {
+                        if (s.name.equals(input) && s instanceof Property) {
+                            trade.propertyRequest.add((Property) s);
+                        } else if (!(s instanceof Property)) {
+                            impossible = true;
                         }
+                    }
+                    if (impossible) {
+                        System.out.println("***ERROR: You can't even own that... What are you doing?");
                     }
                 }
                 break;
@@ -118,7 +122,7 @@ public class Player {
                     String input = MyInput.get_string();
                     for (Property p : this.properties) {
                         if (p.name.equals(input)) {
-                            newTrade.propertiesOffer.add(p);
+                            trade.propertiesOffer.add(p);
                             break;
                         } else {
                             System.out.println("player doesn't have the property: " + input);
@@ -128,24 +132,29 @@ public class Player {
                 break;
                 case "askd": {
                     System.out.print("amount: ");
-                    newTrade.dollarRequest = MyInput.get_int();
+                    trade.dollarRequest = MyInput.get_int();
+                    trade.dollarOffer = 0;
                 }
                 break;
                 case "offerd": {
                     System.out.println("amount: ");
-                    newTrade.dollarOffer = MyInput.get_int();
+                    trade.dollarOffer = MyInput.get_int();
+                    trade.dollarRequest = 0;
                 }
                 break;
                 case "done": {
                     keepGoing = false;
                 }
                 break;
+                case "cancel": {
+                    return;
+                }
                 default: {
                     System.out.println("This shouldn't happened because of the validateInput function from MyInput class");
                 }
             }
         }
-        board.postTrade(newTrade);
+        board.postTrade(trade);
     }
 
     public void accept() {
@@ -247,11 +256,13 @@ public class Player {
     public void addProperty(Property property) {
 
         properties.add(property);
+        System.out.println(name + " + " + property.name);
     }
 
     public void removeProperty(Property property) {
 
         properties.remove(property);
+        System.out.println(name + " - " + property.name);
     }
 
     public boolean isInJail() {

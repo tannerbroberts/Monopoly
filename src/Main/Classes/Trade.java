@@ -5,7 +5,7 @@ import SpaceClasses.Property;
 import java.util.ArrayList;
 
 public class Trade {
-    Player giver;
+    Player tradePoster;
 
     ArrayList<Property> propertiesOffer;
     int dollarOffer;
@@ -13,15 +13,32 @@ public class Trade {
     ArrayList<Property> propertyRequest;
     int dollarRequest;
 
-    public Trade(Player giver) {
-        this.giver = giver;
+    public Trade(Player tradePoster) {
+        this.tradePoster = tradePoster;
         this.propertiesOffer = new ArrayList<>();
         this.propertyRequest = new ArrayList<>();
     }
 
     public void makeItHappen(Player taker) {
-        System.out.println("We can't actually trade yet...");
-        // TODO: 4/9/20 ... make it happen?
+        if (dollarOffer != 0) {
+            tradePoster.setDollarCount(-dollarOffer);
+            taker.setDollarCount(dollarOffer);
+        }
+        if (dollarRequest != 0) {
+            tradePoster.setDollarCount(dollarRequest);
+            taker.setDollarCount(-dollarRequest);
+        }
+
+        for (Property p : propertiesOffer) {
+            p.setOwner(taker);
+            tradePoster.removeProperty(p);
+            taker.addProperty(p);
+        }
+        for (Property p : propertyRequest) {
+            p.setOwner(tradePoster);
+            taker.removeProperty(p);
+            tradePoster.addProperty(p);
+        }
         // remove the trade from the list that it exists in
     }
 
@@ -29,22 +46,28 @@ public class Trade {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(giver);
-        sb.append(" ->($");
-        sb.append(dollarOffer);
-        if(propertiesOffer.size() > 0) sb.append(", ");
+        sb.append(tradePoster);
+        sb.append(" ->(");
+        if (dollarOffer != 0) {
+            sb.append("$");
+            sb.append(dollarOffer);
+        }
+        if (propertiesOffer.size() > 0 && dollarOffer != 0) sb.append(", ");
         for (int i = 0; i < propertiesOffer.size(); i++) {
             sb.append(propertiesOffer.get(i));
-            if(i < propertiesOffer.size() - 1) sb.append(", ");
+            if (i < propertiesOffer.size() - 1) sb.append(", ");
         }
-        sb.append(")");
+        sb.append(")\n");
 
-        sb.append("          <-($");
-        sb.append(dollarRequest);
-        if(propertyRequest.size() > 0) sb.append(", ");
+        sb.append(String.format(("%" + tradePoster.getName().length() + "s"), " <-("));
+        if (dollarRequest != 0) {
+            sb.append("$");
+            sb.append(dollarRequest);
+        }
+        if (propertyRequest.size() > 0 && dollarRequest != 0) sb.append(", ");
         for (int i = 0; i < propertyRequest.size(); i++) {
             sb.append(propertyRequest.get(i));
-            if(i < propertyRequest.size() -1) sb.append(", ");
+            if (i < propertyRequest.size() - 1) sb.append(", ");
         }
         sb.append(")");
 

@@ -161,7 +161,7 @@ public class ChanceCard extends Space {
 
     private void speedingFine(Player player) {
 
-        System.out.print("speeding fine ");
+        System.out.print("speeding fine\n");
         player.setDollarCount(-15);
     }
 

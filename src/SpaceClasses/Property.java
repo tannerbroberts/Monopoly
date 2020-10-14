@@ -17,7 +17,7 @@ public abstract class Property extends Space {
     @Override
     public void interact(Player player) {
         if (owner == null) {
-            System.out.print("buy " + this.name + " for $" + this.cost + "?   (y/n) ");
+            System.out.print("buy " + this.name + " for $" + this.cost + "?\n");
 
             while (true) {
                 String[] strings = {"y", "n"};
@@ -49,6 +49,10 @@ public abstract class Property extends Space {
     protected abstract int getRent();
 
     public abstract void setDevelopmentSize(int developmentSize);
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
 
     @Override
     public String toString() {
