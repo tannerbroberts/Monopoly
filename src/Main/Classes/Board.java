@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Board {
     private final ArrayList<Space> spaces;
     private final ArrayList<Trade> trades;
+    private ArrayList<Player> players;
 
     public Board() {
 
@@ -56,5 +57,9 @@ public class Board {
 
     public ArrayList<Space> getSpaces() {
         return spaces;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 }

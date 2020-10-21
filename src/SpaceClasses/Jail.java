@@ -24,7 +24,7 @@ public class Jail extends Space {
                 String[] strings = {"roll", "pay", "card"};
                 String answer = MyInput.validate_string(strings);
                 if (answer.equals("roll")) {
-                    if (Player.doubles()) {
+                    if (Player.rolledDoubles()) {
                         System.out.println(name + " rolled doubles!");
                         player.gotOutOfJail();
                         player.takeTurn();

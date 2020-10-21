@@ -91,6 +91,21 @@ public class Player {
         }
     }
 
+    public static boolean rolledDoubles() {
+
+        return random.nextInt(6) == 0;
+    }
+
+    public void accept() {
+        if (board.tradeListSize() == 0) {
+            System.out.println("no trades available");
+            return;
+        }
+
+        int input = MyInput.validate_integer(board.tradeListSize() - 1, 0);
+        board.takeTrade(input, this);
+    }
+
     public void list() {
         // get the list of properties offered, asked, and dollars offered/asked
         Trade trade = new Trade(this);
@@ -104,6 +119,8 @@ public class Player {
             String[] acceptable_strings = {"ask", "offer", "askd", "offerd", "done", "cancel"};
             switch (MyInput.validate_string(acceptable_strings)) {
                 case "ask": {
+
+                    Player playerImGoingToTradeWith = MyInput.get_player(board.getPlayers());
                     String input = MyInput.get_string();
                     boolean impossible = false;
                     for (Space s : board.getSpaces()) {
@@ -157,16 +174,6 @@ public class Player {
         board.postTrade(trade);
     }
 
-    public void accept() {
-        if (board.tradeListSize() == 0) {
-            System.out.println("no trades available");
-            return;
-        }
-
-        int input = MyInput.validate_integer(board.tradeListSize() - 1, 0);
-        board.takeTrade(input, this);
-    }
-
     public void mortgage() {
 
         System.out.println("not happening yet");
@@ -174,11 +181,6 @@ public class Player {
         // print a list of owned properties and their mortgage values
 
         // pick from a list of properties that you own
-    }
-
-    public void build() {
-
-
     }
 
     public void interactWithSpace(Space space) {
@@ -224,9 +226,16 @@ public class Player {
         return r1 + r2;
     }
 
-    public static boolean doubles() {
+    public void build() {
+        // look for properties that the player can build on
 
-        return random.nextInt(6) == 0;
+        // print out possible build sites and the dollar cost of each
+
+        // build in a loop, exiting only when the player says they are done
+
+        // accept multiple build requests in a row, building each as if it were a separate transaction
+
+        // print out error codes that don't break the game if a player enters bad input.
     }
 
     public void setDollarCount(int amount) {

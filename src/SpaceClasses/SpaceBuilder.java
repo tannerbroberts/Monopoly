@@ -27,6 +27,7 @@ public class SpaceBuilder {
 
     // first side
     br_a_cost = 60,
+            br_build_cost = 50,
             br_a_rent = 2,
             br_a1 = 10,
             br_a2 = 30,
@@ -42,6 +43,7 @@ public class SpaceBuilder {
             br_b5 = 450,
 
     lb_a_cost = 100,
+            lb_build_cost = 50,
             lb_a_rent = 6,
             lb_a1 = 30,
             lb_a2 = 90,
@@ -58,6 +60,7 @@ public class SpaceBuilder {
 
     // second side
     pk_a_cost = 140,
+            pk_build_cost = 100,
             pk_a_rent = 10,
             pk_a1 = 50,
             pk_a2 = 150,
@@ -73,6 +76,7 @@ public class SpaceBuilder {
             pk_b5 = 900,
 
     o_a_cost = 180,
+            o_build_cost = 100,
             o_a_rent = 14,
             o_a1 = 70,
             o_a2 = 200,
@@ -89,6 +93,7 @@ public class SpaceBuilder {
 
     // third side
     r_a_cost = 220,
+            r_build_cost = 150,
             r_a_rent = 18,
             r_a1 = 90,
             r_a2 = 250,
@@ -104,6 +109,7 @@ public class SpaceBuilder {
             r_b5 = 1100,
 
     y_a_cost = 260,
+            y_build_cost = 150,
             y_a_rent = 22,
             y_a1 = 110,
             y_a2 = 330,
@@ -120,6 +126,7 @@ public class SpaceBuilder {
 
     // fourth side
     g_a_cost = 300,
+            g_build_cost = 200,
             g_a_rent = 26,
             g_a1 = 130,
             g_a2 = 390,
@@ -135,6 +142,7 @@ public class SpaceBuilder {
             g_b5 = 1400,
 
     b_a_cost = 350,
+            b_build_cost = 200,
             b_a_rent = 35,
             b_a1 = 175,
             b_a2 = 500,

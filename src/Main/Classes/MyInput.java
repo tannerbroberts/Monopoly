@@ -1,5 +1,6 @@
 package Main.Classes;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,22 +17,39 @@ public class MyInput {
     }
 
     public static float get_float() {
-        while(true) {
+        while (true) {
             try {
                 System.out.print("float:");
                 return new Scanner(System.in).nextFloat();
-            }catch(InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("bad input, you need a float");
             }
         }
     }
 
+    public static Player get_player(ArrayList<Player> players) {
+        for (Player player : players) {
+            System.out.println(player.getName());
+        }
+
+        do {
+            System.out.print("Enter player name: ");
+            String chosenPlayer = get_string();
+            for (Player player : players) {
+                if (player.getName().equals(chosenPlayer)) {
+                    return player;
+                }
+            }
+            System.out.println("That's not a player's name");
+        } while (true);
+    }
+
     public static String get_string() {
-        while(true) {
+        while (true) {
             try {
                 System.out.print("string:");
                 return new Scanner(System.in).nextLine();
-            }catch(InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("bad input, you need a string");
             }
         }
