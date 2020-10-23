@@ -1,5 +1,6 @@
 package Main.Classes;
 
+import SpaceClasses.ColorProperty;
 import SpaceClasses.Property;
 import SpaceClasses.Space;
 
@@ -107,6 +108,8 @@ public class Player {
     }
 
     public void list() {
+
+        // TODO: 10/23/20 The properties with houses on them cannot be traded. I need to implement that.
         Trade trade = new Trade(this);
 
         Player playerImGoingToTradeWith = MyInput.get_player(board.getPlayers());
@@ -167,11 +170,21 @@ public class Player {
 
     public void mortgage() {
 
-        System.out.println("not happening yet");
-
         // print a list of owned properties and their mortgage values
+        for (Property property :
+                properties) {
+            if (!property.mortgaged) {
+                if (property instanceof ColorProperty && property.developmentSize > 0) {
+                    System.out.println(property.name + ": " + property.);
+                } else {
+                    System.out.println(property.name + ": " + property.cost / 4 * 3);
+                }
+            }
+        }
 
-        // pick from a list of properties that you own
+        // if a property has a house, print the value of destroying the house
+
+        // pick from a list of properties or houses that you own
     }
 
     public void interactWithSpace(Space space) {

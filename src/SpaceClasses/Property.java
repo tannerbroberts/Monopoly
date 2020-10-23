@@ -5,8 +5,8 @@ import Main.Classes.Player;
 
 public abstract class Property extends Space {
     protected Player owner;
-    protected int developmentSize;
-    protected boolean mortgaged;
+    public int developmentSize;
+    public boolean mortgaged;
 
     public Property(char type, String name, int cost, int developmentSize) {
         super(name, cost);

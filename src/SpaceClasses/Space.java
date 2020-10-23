@@ -4,7 +4,7 @@ import Main.Classes.Player;
 
 public abstract class Space {
     public String name;
-    Integer cost;
+    public Integer cost;
 
     public Space(String name, int cost) {
 
