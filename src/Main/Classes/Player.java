@@ -107,8 +107,9 @@ public class Player {
     }
 
     public void list() {
-        // get the list of properties offered, asked, and dollars offered/asked
         Trade trade = new Trade(this);
+
+        Player playerImGoingToTradeWith = MyInput.get_player(board.getPlayers());
 
         boolean keepGoing = true;
         while (keepGoing) {
@@ -119,19 +120,9 @@ public class Player {
             String[] acceptable_strings = {"ask", "offer", "askd", "offerd", "done", "cancel"};
             switch (MyInput.validate_string(acceptable_strings)) {
                 case "ask": {
-
-                    Player playerImGoingToTradeWith = MyInput.get_player(board.getPlayers());
-                    String input = MyInput.get_string();
-                    boolean impossible = false;
-                    for (Space s : board.getSpaces()) {
-                        if (s.name.equals(input) && s instanceof Property) {
-                            trade.propertyRequest.add((Property) s);
-                        } else if (!(s instanceof Property)) {
-                            impossible = true;
-                        }
-                    }
-                    if (impossible) {
-                        System.out.println("***ERROR: You can't even own that... What are you doing?");
+                    Property propertyRequested = MyInput.get_property_from_player_list(playerImGoingToTradeWith);
+                    if (propertyRequested != null) {
+                        trade.propertyRequest.add(propertyRequested);
                     }
                 }
                 break;

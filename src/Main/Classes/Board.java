@@ -8,15 +8,17 @@ import java.util.ArrayList;
 public class Board {
     private final ArrayList<Space> spaces;
     private final ArrayList<Trade> trades;
-    private ArrayList<Player> players;
+    private final ArrayList<Player> players;
 
-    public Board() {
+    public Board(ArrayList<Player> players) {
 
         spaces = new ArrayList<>();
 
         trades = new ArrayList<>();
 
         for (int i = 0; i < 40; i++) spaces.add(SpaceBuilder.make(i));
+
+        this.players = players;
     }
 
     public Space get(int i) {

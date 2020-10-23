@@ -6,7 +6,7 @@ public class Monopoly {
 
     public static void play(int playerCount, int dollarCount) {
         ArrayList<Player> players = new ArrayList<>();
-        Board board = new Board();
+        Board board = new Board(players);
 
         addPlayers(playerCount, dollarCount, board, players);
 

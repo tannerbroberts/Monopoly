@@ -1,5 +1,7 @@
 package Main.Classes;
 
+import SpaceClasses.Property;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -70,14 +72,39 @@ public class MyInput {
     }
 
     public static int validate_integer(int inclusive_upper, int inclusive_lower) {
-        while(true) {
+        while (true) {
             try {
                 System.out.print("int:");
                 int return_value = new Scanner(System.in).nextInt();
-                if(return_value >= inclusive_lower && return_value <= inclusive_upper) return return_value;
-            }catch(InputMismatchException e) {
+                if (return_value >= inclusive_lower && return_value <= inclusive_upper) return return_value;
+            } catch (InputMismatchException e) {
                 System.out.println("bad input, you need an integer");
             }
+        }
+    }
+
+    public static Property get_property_from_player_list(Player player_im_asking_from) {
+
+        if (player_im_asking_from.getProperties().size() == 0) {
+            System.out.println("That player owns no properties");
+            return null;
+        }
+        while (true) {
+            for (Property property :
+                    player_im_asking_from.getProperties()) {
+                System.out.println(property.toString());
+            }
+
+            String property_name_input = get_string();
+            if (property_name_input.equals("cancel")) return null;
+
+            for (Property property :
+                    player_im_asking_from.getProperties()) {
+                if (property.name.equals(property_name_input)) {
+                    return property;
+                }
+            }
+            System.out.println("Can't ask for that... That wasn't one of the options");
         }
     }
 }
