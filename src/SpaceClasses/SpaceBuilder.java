@@ -163,83 +163,83 @@ public class SpaceBuilder {
             case 0:
                 return new GO("Go", MONEY_FOR_PASSING_GO);
             case 1:
-                return new ColorProperty('1', "brown1", br_a_cost, br_a_rent, br_a1, br_a2, br_a3, br_a4, br_a5);
+                return new ColorProperty("brown1", br_a_cost, br_a_rent, br_a1, br_a2, br_a3, br_a4, br_a5);
             case 2:
                 return new CommunityChest(0);
             case 3:
-                return new ColorProperty('1', "brown2", br_b_cost, br_b_rent, br_b1, br_b2, br_b3, br_b4, br_b5);
+                return new ColorProperty("brown2", br_b_cost, br_b_rent, br_b1, br_b2, br_b3, br_b4, br_b5);
             case 4:
                 return new Tax("INCOME TAX", INCOME_TAX);
             case 5:
-                return new RailRoad('9', "RR", RR_cost, RR1, RR2, RR3, RR4);
+                return new RailRoad("RR", RR_cost, RR1, RR2, RR3, RR4);
             case 6:
-                return new ColorProperty('2', "blue1", lb_a_cost, lb_a_rent, lb_a1, lb_a2, lb_a3, lb_a4, lb_a5);
+                return new ColorProperty("blue1", lb_a_cost, lb_a_rent, lb_a1, lb_a2, lb_a3, lb_a4, lb_a5);
             case 7:
                 return new ChanceCard();
             case 8:
-                return new ColorProperty('2', "blue2", lb_a_cost, lb_a_rent, lb_a1, lb_a2, lb_a3, lb_a4, lb_a5);
+                return new ColorProperty("blue2", lb_a_cost, lb_a_rent, lb_a1, lb_a2, lb_a3, lb_a4, lb_a5);
             case 9:
-                return new ColorProperty('2', "blue3", lb_b_cost, lb_b_rent, lb_b1, lb_b2, lb_b3, lb_b4, lb_b5);
+                return new ColorProperty("blue3", lb_b_cost, lb_b_rent, lb_b1, lb_b2, lb_b3, lb_b4, lb_b5);
             case 10:
                 return new Jail("Jail", BAIL_COST);
             case 11:
-                return new ColorProperty('3', "pink1", pk_a_cost, pk_a_rent, pk_a1, pk_a2, pk_a3, pk_a4, pk_a5);
+                return new ColorProperty("pink1", pk_a_cost, pk_a_rent, pk_a1, pk_a2, pk_a3, pk_a4, pk_a5);
             case 12:
                 return new Utility('0', "Electric Company", U_cost, U1, U2);
             case 13:
-                return new ColorProperty('3', "pink2", pk_a_cost, pk_a_rent, pk_a1, pk_a2, pk_a3, pk_a4, pk_a5);
+                return new ColorProperty("pink2", pk_a_cost, pk_a_rent, pk_a1, pk_a2, pk_a3, pk_a4, pk_a5);
             case 14:
-                return new ColorProperty('3', "pink3", pk_b_cost, pk_b_rent, pk_b1, pk_b2, pk_b3, pk_b4, pk_b5);
+                return new ColorProperty("pink3", pk_b_cost, pk_b_rent, pk_b1, pk_b2, pk_b3, pk_b4, pk_b5);
             case 15:
-                return new RailRoad('9', "Pennsylvania Railroad", RR_cost, RR1, RR2, RR3, RR4);
+                return new RailRoad("Pennsylvania Railroad", RR_cost, RR1, RR2, RR3, RR4);
             case 16:
-                return new ColorProperty('4', "orange1", o_a_cost, o_a_rent, o_a1, o_a2, o_a3, o_a4, o_a5);
+                return new ColorProperty("orange1", o_a_cost, o_a_rent, o_a1, o_a2, o_a3, o_a4, o_a5);
             case 17:
                 return new CommunityChest(1);
             case 18:
-                return new ColorProperty('4', "orange2", o_a_cost, o_a_rent, o_a1, o_a2, o_a3, o_a4, o_a5);
+                return new ColorProperty("orange2", o_a_cost, o_a_rent, o_a1, o_a2, o_a3, o_a4, o_a5);
             case 19:
-                return new ColorProperty('4', "orange3", o_b_cost, o_b_rent, o_b1, o_b2, o_b3, o_b4, o_b5);
+                return new ColorProperty("orange3", o_b_cost, o_b_rent, o_b1, o_b2, o_b3, o_b4, o_b5);
             case 20:
                 return new FreeParking();
             case 21:
-                return new ColorProperty('5', "red1", r_a_cost, r_a_rent, r_a1, r_a2, r_a3, r_a4, r_a5);
+                return new ColorProperty("red1", r_a_cost, r_a_rent, r_a1, r_a2, r_a3, r_a4, r_a5);
             case 22:
                 return new ChanceCard();
             case 23:
-                return new ColorProperty('5', "red2", r_a_cost, r_a_rent, r_a1, r_a2, r_a3, r_a4, r_a5);
+                return new ColorProperty("red2", r_a_cost, r_a_rent, r_a1, r_a2, r_a3, r_a4, r_a5);
             case 24:
-                return new ColorProperty('5', "red3", r_b_cost, r_b_rent, r_b1, r_b2, r_b3, r_b4, r_b5);
+                return new ColorProperty("red3", r_b_cost, r_b_rent, r_b1, r_b2, r_b3, r_b4, r_b5);
             case 25:
-                return new RailRoad('9', "BnO", RR_cost, RR1, RR2, RR3, RR4);
+                return new RailRoad("BnO", RR_cost, RR1, RR2, RR3, RR4);
             case 26:
-                return new ColorProperty('6', "yellow1", y_a_cost, y_a_rent, y_a1, y_a2, y_a3, y_a4, y_a5);
+                return new ColorProperty("yellow1", y_a_cost, y_a_rent, y_a1, y_a2, y_a3, y_a4, y_a5);
             case 27:
-                return new ColorProperty('6', "yellow2", y_a_cost, y_a_rent, y_a1, y_a2, y_a3, y_a4, y_a5);
+                return new ColorProperty("yellow2", y_a_cost, y_a_rent, y_a1, y_a2, y_a3, y_a4, y_a5);
             case 28:
                 return new Utility('0', "Water Works", U_cost, U1, U2);
             case 29:
-                return new ColorProperty('6', "yellow3", y_b_cost, y_b_rent, y_b1, y_b2, y_b3, y_b4, y_b5);
+                return new ColorProperty("yellow3", y_b_cost, y_b_rent, y_b1, y_b2, y_b3, y_b4, y_b5);
             case 30:
                 return new GoToJail("Go to Jail");
             case 31:
-                return new ColorProperty('7', "green1", g_a_cost, g_a_rent, g_a1, g_a2, g_a3, g_a4, g_a5);
+                return new ColorProperty("green1", g_a_cost, g_a_rent, g_a1, g_a2, g_a3, g_a4, g_a5);
             case 32:
-                return new ColorProperty('7', "green2", g_a_cost, g_a_rent, g_a1, g_a2, g_a3, g_a4, g_a5);
+                return new ColorProperty("green2", g_a_cost, g_a_rent, g_a1, g_a2, g_a3, g_a4, g_a5);
             case 33:
                 return new CommunityChest(2);
             case 34:
-                return new ColorProperty('7', "green3", g_b_cost, g_b_rent, g_b1, g_b2, g_b3, g_b4, g_b5);
+                return new ColorProperty("green3", g_b_cost, g_b_rent, g_b1, g_b2, g_b3, g_b4, g_b5);
             case 35:
-                return new RailRoad('9', "Short Line", RR_cost, RR1, RR2, RR3, RR4);
+                return new RailRoad("Short Line", RR_cost, RR1, RR2, RR3, RR4);
             case 36:
                 return new ChanceCard();
             case 37:
-                return new ColorProperty('8', "Park Place", b_a_cost, b_a_rent, b_a1, b_a2, b_a3, b_a4, b_a5);
+                return new ColorProperty("Park Place", b_a_cost, b_a_rent, b_a1, b_a2, b_a3, b_a4, b_a5);
             case 38:
                 return new Tax("LUXURY TAX", LUXURY_TAX);
             case 39:
-                return new ColorProperty('8', "Board Walk", b_b_cost, b_b_rent, b_b1, b_b2, b_b3, b_b4, b_b5);
+                return new ColorProperty("Board Walk", b_b_cost, b_b_rent, b_b1, b_b2, b_b3, b_b4, b_b5);
             default:
                 return null;
         }

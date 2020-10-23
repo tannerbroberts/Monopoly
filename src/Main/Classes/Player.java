@@ -1,6 +1,5 @@
 package Main.Classes;
 
-import SpaceClasses.ColorProperty;
 import SpaceClasses.Property;
 import SpaceClasses.Space;
 
@@ -171,20 +170,22 @@ public class Player {
     public void mortgage() {
 
         // print a list of owned properties and their mortgage values
-        for (Property property :
-                properties) {
-            if (!property.mortgaged) {
-                if (property instanceof ColorProperty && property.developmentSize > 0) {
-                    System.out.println(property.name + ": " + property.);
-                } else {
-                    System.out.println(property.name + ": " + property.cost / 4 * 3);
-                }
-            }
-        }
 
-        // if a property has a house, print the value of destroying the house
+        // if a property has a house, print the value of destroying the house instead
 
         // pick from a list of properties or houses that you own
+    }
+
+    public void build() {
+        // look for properties that the player can build on
+
+        // print out possible build sites and the dollar cost of each
+
+        // build in a loop, exiting only when the player says they are done
+
+        // accept multiple build requests in a row, building each as if it were a separate transaction
+
+        // print out error codes that don't break the game if a player enters bad input.
     }
 
     public void interactWithSpace(Space space) {
@@ -228,18 +229,6 @@ public class Player {
         System.out.println(this.name + " rolled " + r1 + ", " + r2);
 
         return r1 + r2;
-    }
-
-    public void build() {
-        // look for properties that the player can build on
-
-        // print out possible build sites and the dollar cost of each
-
-        // build in a loop, exiting only when the player says they are done
-
-        // accept multiple build requests in a row, building each as if it were a separate transaction
-
-        // print out error codes that don't break the game if a player enters bad input.
     }
 
     public void setDollarCount(int amount) {

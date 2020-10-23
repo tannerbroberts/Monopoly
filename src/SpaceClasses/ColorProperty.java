@@ -8,10 +8,16 @@ public class ColorProperty extends Property {
     private final int threeHouse;
     private final int fourHouse;
     private final int hotel;
-    // developmentSize legend: 0 = rent, 1 = house, 2 = two house, 3 = three house, 4 = four house, 5 = hotel, 6 = double rent
+    // developmentSize legend: 0 = rent
+    // 1 = house
+    // 2 = two house
+    // 3 = three house
+    // 4 = four house
+    // 5 = hotel
+    // 6 = double rent
 
-    public ColorProperty(char color_type, String name, int buyCost, int rent, int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel) {
-        super(color_type, name, buyCost, 0);
+    public ColorProperty(String name, int buyCost, int rent, int oneHouse, int twoHouse, int threeHouse, int fourHouse, int hotel) {
+        super(name, buyCost);
         this.rent = rent;
         this.oneHouse = oneHouse;
         this.twoHouse = twoHouse;

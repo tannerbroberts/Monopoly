@@ -5,12 +5,11 @@ import Main.Classes.Player;
 
 public abstract class Property extends Space {
     protected Player owner;
-    public int developmentSize;
     public boolean mortgaged;
+    public int developmentSize;
 
-    public Property(char type, String name, int cost, int developmentSize) {
+    public Property(String name, int cost) {
         super(name, cost);
-        this.developmentSize = developmentSize;
         mortgaged = false;
     }
 
